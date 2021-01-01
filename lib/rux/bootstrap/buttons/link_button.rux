@@ -1,0 +1,9 @@
+module Bootstrap
+  module Buttons
+    class LinkButton < Button
+      def initialize(**kwargs)
+        super(**kwargs, flavor: 'link')
+      end
+    end
+  end
+end
