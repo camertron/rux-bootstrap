@@ -1,0 +1,9 @@
+module RuxBootstrap
+  module Buttons
+    class DarkButton < Button
+      def initialize(**kwargs)
+        super(**kwargs, flavor: 'dark')
+      end
+    end
+  end
+end

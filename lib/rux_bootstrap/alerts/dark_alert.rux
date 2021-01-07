@@ -1,0 +1,9 @@
+module RuxBootstrap
+  module Alerts
+    class DarkAlert < Alert
+      def initialize
+        super(flavor: 'dark')
+      end
+    end
+  end
+end

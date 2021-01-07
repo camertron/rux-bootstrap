@@ -1,9 +1,0 @@
-module Bootstrap
-  module Alerts
-    class PrimaryAlert < Alert
-      def initialize
-        super(flavor: 'primary')
-      end
-    end
-  end
-end

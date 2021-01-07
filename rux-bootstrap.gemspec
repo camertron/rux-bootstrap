@@ -1,9 +1,9 @@
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
-require 'rux/bootstrap/version'
+require 'rux_bootstrap/version'
 
 Gem::Specification.new do |s|
-  s.name     = 'rux-bootstrap'
-  s.version  = ::Bootstrap::VERSION
+  s.name     = 'rux_bootstrap'
+  s.version  = ::RuxBootstrap::VERSION
   s.authors  = ['Cameron Dutro']
   s.email    = ['camertron@gmail.com']
   s.homepage = 'http://github.com/camertron/rux-bootstrap'
