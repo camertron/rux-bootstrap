@@ -1,3 +1,5 @@
+require 'rux'
+
 Rux.library_paths << __dir__
 
 module RuxBootstrap
