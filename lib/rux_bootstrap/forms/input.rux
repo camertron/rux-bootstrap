@@ -1,23 +1,32 @@
 module RuxBootstrap
   module Forms
     class Input < Component
-      def initialize(form:, field:, class_names: [], label: nil)
+      def initialize(form:, field:, size: :default, class_names: [], label: nil, readonly: false, placeholder: nil)
         @form = form
         @field = field
+        @size = size
         @class_names = class_names
         @label = label
+        @readonly = readonly
+        @placeholder = placeholder
       end
 
       def call
         label = if @label
           <Label
             for-id={tag.send(:tag_id)}
-            class-names={@form.label_class_names}>
+            class-names={@form.label_class_names}
+            size={@size}>
             {@label}
           </Label>
         end
 
-        input = <div class={normalize_class_names(*@class_names, *@form.input_class_names)}>
+        class_names = [
+          *@class_names,
+          *@form.input_class_names
+        ]
+
+        input = <div class={normalize_class_names(class_names)}>
           {tag.render}
         </div>
 
@@ -40,6 +49,15 @@ module RuxBootstrap
       def tag
         raise NotImplementedError, "'#{__method__}' should be defined in "\
           'derived classes'
+      end
+
+      def size_class_name
+        case @size
+          when :large
+            'form-control-lg'
+          when :small
+            'form-control-sm'
+        end
       end
     end
   end

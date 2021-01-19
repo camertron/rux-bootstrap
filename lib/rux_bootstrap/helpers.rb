@@ -2,6 +2,7 @@ module RuxBootstrap
   module Helpers
     def normalize_class_names(*class_names)
       class_names
+        .compact
         .flat_map { |cn| cn.split(/\s+/) }
         .uniq
         .join(' ')

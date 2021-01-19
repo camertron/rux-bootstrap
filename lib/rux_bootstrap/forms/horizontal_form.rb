@@ -20,7 +20,10 @@ module RuxBootstrap
       end
 
       def label_class_names
-        @label_class_names ||= @label_width.to_class_names
+        @label_class_names ||= [
+          'col-form-label',
+          *@label_width.to_class_names
+        ]
       end
 
       def input_class_names

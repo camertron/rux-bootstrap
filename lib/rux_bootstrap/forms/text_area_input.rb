@@ -12,7 +12,12 @@ module RuxBootstrap
 
       def tag
         @tag ||= ActionView::Helpers::Tags::TextArea.new(
-          @form.object_name, @field, self, { class: 'form-control', rows: @rows }
+          @form.object_name, @field, self, {
+            class: normalize_class_names('form-control', size_class_name),
+            readonly: @readonly,
+            placeholder: @placeholder,
+            rows: @rows
+          }
         )
       end
     end
