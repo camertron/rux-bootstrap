@@ -1,0 +1,16 @@
+module RuxBootstrap
+  module Forms
+    class Label < Component
+      def initialize(for_id: nil, class_names: [])
+        @for_id = for_id
+        @class_names = class_names
+      end
+
+      def call
+        <label for={@for_id || ''} class={normalize_class_names(*@class_names)}>
+          {content}
+        </label>
+      end
+    end
+  end
+end

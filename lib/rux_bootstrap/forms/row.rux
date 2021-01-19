@@ -1,0 +1,19 @@
+module RuxBootstrap
+  module Forms
+    class Row < Component
+      def initialize(class_names: [])
+        @class_names = class_names
+      end
+
+      # def call
+      #   <div class={normalize_class_names('form-group', *@class_names)}>
+      #     {content}
+      #   </div>
+      # end
+
+      def call
+        content
+      end
+    end
+  end
+end

@@ -1,6 +1,6 @@
 module RuxBootstrap
   module Alerts
-    class DismissButton < ViewComponent::Base
+    class DismissButton < Component
       attr_reader(:text, :aria_label)
 
       def initialize(text: "&times;", aria_label: "Close")

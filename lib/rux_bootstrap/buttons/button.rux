@@ -1,10 +1,11 @@
 module RuxBootstrap
   module Buttons
-    class Button < ViewComponent::Base
-      attr_reader :flavor, :outline, :size, :block_level, :active, :disabled
+    class Button < Component
+      attr_reader :flavor, :type, :outline, :size, :block_level, :active, :disabled
 
-      def initialize(flavor:, outline: false, size: :normal, block_level: false, active: false, disabled: false)
+      def initialize(flavor:, type: 'button', outline: false, size: :normal, block_level: false, active: false, disabled: false)
         @flavor = flavor
+        @type = type
         @outline = outline
         @size = size
         @block_level = block_level
@@ -24,11 +25,11 @@ module RuxBootstrap
         class_names.compact!
 
         if disabled
-          <button class={class_names.join(' ')} role="button" disabled="disabled">
+          <button class={class_names.join(' ')} type={type} role="button" disabled="disabled">
             {content}
           </button>
         else
-          <button class={class_names.join(' ')} role="button">
+          <button class={class_names.join(' ')} type={type} role="button">
             {content}
           </button>
         end

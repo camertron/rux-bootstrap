@@ -1,0 +1,34 @@
+module RuxBootstrap
+  module Forms
+    class InputRow < Component
+      def initialize(form:, field:, class_names: [], label: nil)
+        @form = form
+        @field = field
+        @class_names = class_names
+        @label = label
+      end
+
+      def call
+        <Row class-names={@form.row_class_names}>
+          {if @label
+            <Label
+              for-id={tag.send(:tag_id)}
+              class-names={@form.label_class_names}>
+              {@label}
+            </Label>
+          end}
+          <div class={normalize_class_names(*@class_names, *@form.input_class_names)}>
+            {tag.render}
+          </div>
+        </Row>
+      end
+
+      private
+
+      def tag
+        raise NotImplementedError, "'#{__method__}' should be defined in "\
+          'derived classes'
+      end
+    end
+  end
+end

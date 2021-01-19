@@ -1,0 +1,13 @@
+module RuxBootstrap
+  module Forms
+    class ButtonRow < Component
+      def call
+        <Row>
+          <div class='col-sm-10'>
+            {content}
+          </div>
+        </Row>
+      end
+    end
+  end
+end

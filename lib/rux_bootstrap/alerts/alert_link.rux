@@ -1,6 +1,6 @@
 module RuxBootstrap
   module Alerts
-    class AlertLink < ViewComponent::Base
+    class AlertLink < Component
       attr_reader :href, :class_names
 
       def initialize(href: '#', class_name: '')
