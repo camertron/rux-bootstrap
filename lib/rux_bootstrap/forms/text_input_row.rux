@@ -1,0 +1,11 @@
+module RuxBootstrap
+  module Forms
+    class TextInputRow < FormRow
+      def call
+        <Row class-names={@form.row_class_names}>
+          {render(TextInput.new(form: @form, **@params))}
+        </Row>
+      end
+    end
+  end
+end

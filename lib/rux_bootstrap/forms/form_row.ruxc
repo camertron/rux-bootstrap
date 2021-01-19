@@ -1,6 +1,6 @@
 module RuxBootstrap
   module Forms
-    class InputRow < Component
+    class FormRow < Component
       def initialize(form:, **params)
         @form = form
         @params = params

@@ -5,14 +5,10 @@ module RuxBootstrap
         @class_names = class_names
       end
 
-      # def call
-      #   <div class={normalize_class_names('form-group', *@class_names)}>
-      #     {content}
-      #   </div>
-      # end
-
       def call
-        content
+        <div class={normalize_class_names('form-group', *@class_names)}>
+          {content}
+        </div>
       end
     end
   end

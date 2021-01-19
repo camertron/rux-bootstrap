@@ -1,9 +1,11 @@
 module RuxBootstrap
   module Forms
-    class ContentRow < InputRow
+    class SectionRow < FormRow
       def call
         render(Row.new(class_names: @form.row_class_names)) {
-          render(Content.new(form: @form, **@params))
+          render(Section.new(form: @form, **@params)) {
+            content
+          }
         }
       end
     end

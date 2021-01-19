@@ -1,0 +1,11 @@
+module RuxBootstrap
+  module Forms
+    class EmailInputRow < FormRow
+      def call
+        <Row class-names={@form.row_class_names}>
+          {render(EmailInput.new(form: @form, **@params))}
+        </Row>
+      end
+    end
+  end
+end

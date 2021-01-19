@@ -6,7 +6,9 @@ module RuxBootstrap
       end
 
       def call
-        content
+        Rux.tag("div", class: normalize_class_names("form-group", *@class_names)) {
+          content
+        }
       end
     end
   end

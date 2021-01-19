@@ -1,6 +1,6 @@
 module RuxBootstrap
   module Forms
-    class TextInputRow < InputRow
+    class TextInput < Input
       private
 
       def tag

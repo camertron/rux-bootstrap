@@ -1,0 +1,46 @@
+module RuxBootstrap
+  module Forms
+    class Input < Component
+      def initialize(form:, field:, class_names: [], label: nil)
+        @form = form
+        @field = field
+        @class_names = class_names
+        @label = label
+      end
+
+      def call
+        label = if @label
+          <Label
+            for-id={tag.send(:tag_id)}
+            class-names={@form.label_class_names}>
+            {@label}
+          </Label>
+        end
+
+        input = <div class={normalize_class_names(*@class_names, *@form.input_class_names)}>
+          {tag.render}
+        </div>
+
+        # We have to do this since, by design, there isn't an outer tag
+        # wrapping these two elements. We can't just stick them into an array
+        # and do a join since, in a Rails context, they're SafeBuffer instances,
+        # which means you have to use << to combine them unless you want to see
+        # a lot of ugly escaped HTML. We can't use an outer tag because we may
+        # be rendering an inline form which expects all the elements to flow
+        # side by side.
+        if label
+          label << input
+        else
+          input
+        end
+      end
+
+      private
+
+      def tag
+        raise NotImplementedError, "'#{__method__}' should be defined in "\
+          'derived classes'
+      end
+    end
+  end
+end

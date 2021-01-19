@@ -1,0 +1,33 @@
+module RuxBootstrap
+  module Forms
+    class Input < Component
+      def initialize(form:, field:, class_names: [], label: nil)
+        @form = form
+        @field = field
+        @class_names = class_names
+        @label = label
+      end
+
+      def call
+        label = if @label
+          render(Label.new(for_id: tag.send(:tag_id), class_names: @form.label_class_names)) {
+            @label
+          }
+        end
+        input = Rux.tag("div", class: normalize_class_names(*@class_names, *@form.input_class_names)) {
+          tag.render
+        }
+        if label
+          label << input
+        else
+          input
+        end
+      end
+      private
+
+      def tag
+        raise(NotImplementedError, "'#{__method__}' should be defined in " "derived classes")
+      end
+    end
+  end
+end

@@ -1,6 +1,6 @@
 module RuxBootstrap
   module Forms
-    class EmailInputRow < InputRow
+    class EmailInput < Input
       private
 
       def tag

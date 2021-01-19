@@ -1,0 +1,29 @@
+module RuxBootstrap
+  module Forms
+    class Section < Component
+      def initialize(form:, label: nil)
+        @form = form
+        @label = label
+      end
+
+      def call
+        label = if @label
+          <Label class-names={@form.label_class_names}>
+            {@label}
+          </Label>
+        end
+
+        section = <div class={normalize_class_names(*@form.input_class_names)}>
+          {content}
+        </div>
+
+        # see the comment in input.rux for details re: why we're using << here
+        if label
+          label << section
+        else
+          section
+        end
+      end
+    end
+  end
+end

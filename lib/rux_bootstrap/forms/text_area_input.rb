@@ -1,6 +1,6 @@
 module RuxBootstrap
   module Forms
-    class TextAreaInputRow < InputRow
+    class TextAreaInput < Input
       DEFAULT_ROWS = 2
 
       def initialize(rows: DEFAULT_ROWS, **kwargs)

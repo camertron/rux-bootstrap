@@ -1,0 +1,11 @@
+module RuxBootstrap
+  module Forms
+    class SectionRow < FormRow
+      def call
+        <Row class-names={@form.row_class_names}>
+          {render(Section.new(form: @form, **@params)) { content }}
+        </Row>
+      end
+    end
+  end
+end

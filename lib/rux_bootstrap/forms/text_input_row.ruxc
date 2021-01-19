@@ -1,9 +1,9 @@
 module RuxBootstrap
   module Forms
-    class ContentRow < InputRow
+    class TextInputRow < FormRow
       def call
         render(Row.new(class_names: @form.row_class_names)) {
-          render(Content.new(form: @form, **@params))
+          render(TextInput.new(form: @form, **@params))
         }
       end
     end
